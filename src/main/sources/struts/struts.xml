@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+        <!--
+                use in develop environment
+        -->
+        <constant name="struts.devMode" value="true" />
+        <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+        <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+        <constant name="struts.objectFactory"
+                value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+
+        <!-- I18N -->
+        <constant name="struts.custom.i18n.resources" value="config/i18n/globalMessages"></constant>
+        <constant name="struts.i18n.encoding" value="UTF-8" />
+        <constant name="struts.locale" value="zh_CN" />
+
+        <constant name="Struts.multipart.parse" value="jakarta" />
+        <constant name="struts.multipart.saveDir" value="/upload_temp" />
+        <constant name="struts.multipart.maxSize" value="4097152" />
+        
+        <!-- add by danson.liu -->
+        <constant name="struts.action.excludePattern" value="/static/img/.*" />
+        <constant name="struts.freemarker.templatesCache" value="true" />
+        <constant name="struts.ui.templateSuffix" value="java" />
+        <constant name="struts.ui.theme" value="simple" />
+        <!-- end by danson.liu -->
+
+        <include file="config/struts/struts-*.xml" />
+        <package name="main" namespace="/struts" extends="struts-default">
+        <interceptors>
+                <interceptor name="testi" class="com.dianping.simple.Interceptor.TestInterceptor"></interceptor>
+                <interceptor-stack name="testStack">                    
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="testi"/>
+                </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="testStack">
+                
+        </default-interceptor-ref>
+                <global-results>                
+                        <result name="error"  type="chain">error</result>               
+                        <result name="noright"  type="chain">noright</result>   
+                        <result name="login"  type="redirect">www.dianping.com/login</result>                   
+                        <result name="register"  type="redirect">www.dianping.com/reg</result>                                                  
+                </global-results>
+                <action name="test" class="com.dianping.simple.action.TestAction">
+                        <result name="success">/index.jsp</result>
+                </action>
+        </package>
+</struts>
