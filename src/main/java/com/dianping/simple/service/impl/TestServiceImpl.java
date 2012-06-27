@@ -24,13 +24,32 @@ import com.dianping.simple.service.TestService;
  */
 public class TestServiceImpl implements TestService {
 
+	private String name;
+	
+	
 	/* (non-Javadoc)
 	 * @see com.dianping.simple.service.TestService#say()
 	 */
 	@Override
 	public void say() {
 		// TODO Auto-generated method stub
-		System.out.println("TestService say");
+		System.out.println("TestService say: my name is" + name);
+	}
+
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 
 }
