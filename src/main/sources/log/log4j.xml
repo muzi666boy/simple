@@ -5,7 +5,7 @@
 	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 
@@ -13,7 +13,7 @@
 		<!-- <param name="Threshold" value="INFO" /> -->
 		<param name="File" value="/data/applogs/shop-web/logs/avatar.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 
@@ -21,7 +21,7 @@
 		<!-- <param name="Threshold" value="INFO" /> -->
 		<param name="File" value="/data/applogs/shop-web/logs/app.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 	
@@ -29,28 +29,28 @@
 		<!-- <param name="Threshold" value="INFO" /> -->
 		<param name="File" value="/data/applogs/shop-web/logs/ibatis.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 	
 	<appender name="illegalAccessAppender" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="File" value="/data/applogs/shop-web/logs/illegalAccess.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 	
 	<appender name="illegalParameterAppender" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="File" value="/data/applogs/shop-web/logs/illegalParameter.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 	
 	<appender name="mongodbViewHitStatisticsAppender" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="File" value="/data/applogs/shop-web/logs/viewHitStatistics.log" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[shop-web]%d %-5p [%c %L] %m%n" />
+			<param name="ConversionPattern" value="[simple]%d %-5p [%c %L] %m%n" />
 		</layout>
 	</appender>
 	<root>

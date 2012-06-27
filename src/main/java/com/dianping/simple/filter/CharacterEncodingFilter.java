@@ -55,10 +55,11 @@ public class CharacterEncodingFilter implements Filter {
                 response.setCharacterEncoding(encoding);
         }
         System.out.println(((HttpServletRequest)request).getRequestURL());
-        System.out.println("CharacterEncodingFilter works... ");
+        System.out.println("CharacterEncodingFilter works... "+encoding);
         // pass the request along the filter chain
         chain.doFilter(request, response);
 
+        System.out.println("CharacterEncodingFilter end... ");
 	}
 
 	/* (non-Javadoc)

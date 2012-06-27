@@ -31,8 +31,8 @@ public class TestAction extends ActionSupport {
 
     @Autowired
     private TestService testService;
-    
-    public String execute(){
+
+	public String execute(){
             System.out.println("TestAction SUCCESS");
             testService.say();
             return SUCCESS;
