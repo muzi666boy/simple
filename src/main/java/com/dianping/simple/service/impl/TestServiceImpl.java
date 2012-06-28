@@ -16,6 +16,7 @@
 package com.dianping.simple.service.impl;
 
 import com.dianping.simple.service.TestService;
+import com.dianping.simple.spring.Car;
 
 /**
  * TODO Comment of TestServiceImpl
@@ -26,6 +27,7 @@ public class TestServiceImpl implements TestService {
 
 	private String name;
 	
+	private Car car;
 	
 	/* (non-Javadoc)
 	 * @see com.dianping.simple.service.TestService#say()
@@ -34,6 +36,7 @@ public class TestServiceImpl implements TestService {
 	public void say() {
 		// TODO Auto-generated method stub
 		System.out.println("TestService say: my name is " + name);
+		System.out.println(car.getBrand()+car.getMaxSpeed()+car.getPrice());
 	}
 
 
@@ -50,6 +53,22 @@ public class TestServiceImpl implements TestService {
 	 */
 	public String getName() {
 		return name;
+	}
+
+
+	/**
+	 * @param car the car to set
+	 */
+	public void setCar(Car car) {
+		this.car = car;
+	}
+
+
+	/**
+	 * @return the car
+	 */
+	public Car getCar() {
+		return car;
 	}
 
 }
