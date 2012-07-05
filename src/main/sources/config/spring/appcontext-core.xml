@@ -9,25 +9,50 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
 	http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
-	http://www.dianping.com/schema/avatar http://www.dianping.com/schema/avatar/avatar-1.0.xsd">
-	<bean id="testService" class="com.dianping.simple.service.impl.TestServiceImpl">
+	http://www.dianping.com/schema/avatar http://www.dianping.com/schema/avatar/avatar-1.0.xsd" >
+	<bean id="testServiceTarget" class="com.dianping.simple.service.impl.TestServiceImpl">
 		<property name="name">
 			<value>monkey</value>
 		</property>
 		<property name="car" ref="car"></property>
+		<property name="test" value="monkey,19"></property>
 	</bean>
-
-	<bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<context:annotation-config />	
+	<!-- bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" /> -->
 
 	<bean class="com.dianping.simple.spring.TestBeanPostProcessor" />
 
 	<bean
 		class="com.dianping.simple.spring.TestInstantiationAwareBeanPostProcessor" />
-	<bean
-		class="com.dianping.simple.spring.TestBeanFactoryPostProcessor" />
-	<bean id="car"
-		class="com.dianping.simple.spring.CarFactroyBean" >
-		<property name="carInfo"><value>qq,123,456.1</value></property>
-		</bean>
+	<bean class="com.dianping.simple.spring.TestBeanFactoryPostProcessor" />
+	<bean id="car" class="com.dianping.simple.spring.CarFactroyBean">
+		<property name="carInfo">
+			<value>qq,123,456.1</value>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="com.dianping.simple.spring.Test">
+					<bean class="com.dianping.simple.spring.TestPropertyEditor"></bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="greetingAdvice" class="com.dianping.simple.spring.aop.GreetingBeforeAdvice"></bean>
+	
+	<bean id="testService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"><value>com.dianping.simple.service.TestService</value></property>
+		<property name="interceptorNames"><list><value>greetingAdvice</value></list></property>
+		<property name="targetName"><value>testServiceTarget</value></property>
+		<property name=""></property>
+	</bean>
+	
+	
+	
+	
+	
 </beans>

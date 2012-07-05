@@ -15,8 +15,6 @@
  */
 package com.dianping.simple.action;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.dianping.simple.service.TestService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -29,8 +27,11 @@ public class TestAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-    @Autowired
     private TestService testService;
+
+	public void setTestService(TestService testService) {
+		this.testService = testService;
+	}
 
 	public String execute(){
             System.out.println("TestAction SUCCESS");

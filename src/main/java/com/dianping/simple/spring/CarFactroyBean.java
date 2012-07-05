@@ -45,7 +45,7 @@ public class CarFactroyBean implements FactoryBean {
 	 * @see org.springframework.beans.factory.FactoryBean#getObjectType()
 	 */
 	@Override
-	public Class getObjectType() {
+	public Class<Car> getObjectType() {
 		// TODO Auto-generated method stub
 		return Car.class;
 	}

@@ -38,7 +38,7 @@ public class TestBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 	public void postProcessBeanFactory(
 			ConfigurableListableBeanFactory beanFactory) throws BeansException {
 		// TODO Auto-generated method stub
-		BeanDefinition bd = beanFactory.getBeanDefinition("testService");
+		BeanDefinition bd = beanFactory.getBeanDefinition("testServiceTarget");
 		bd.getPropertyValues().addPropertyValue("name", "no monkey");
 		logger.info("postProcessBeanFactory "+bd.getBeanClassName());
 	}
